@@ -1,0 +1,230 @@
+# noise_v1 正式部署数据集注册表
+# 当前正式部署机器的数据根目录为 /data_nvme2n1/noise_v1/。
+# 该文件是机器绑定的生产配置；迁移到其他机器时，应按实际挂载点修改各条目 path。
+
+datasets:
+  - id: bilibili_keyboard_mouse
+    name: "Bilibili Keyboard/Mouse/Typing"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/bilibili_keyboard_mouse"
+    input_pattern: "**/*.flac"
+    label_source: directory
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "B 站采集，keyboard/mouse/typing 子目录即类别"
+
+  - id: dcase2019_task1a
+    name: "DCASE 2019 Task1A Scenes"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/dcase2019_task1a"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "DCASE 2019 Task1A 环境声 14400 段；场景标签在 meta.csv 里取不到，交给 C2 AudioTag 打标签"
+
+  - id: dcase2019_task1b_mobile
+    name: "DCASE 2019 Task1B Mobile Scenes"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/dcase2019_task1b_mobile"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "DCASE 2019 Task1B 手机录制环境声"
+
+  - id: dcase2019_task1c_openset
+    name: "DCASE 2019 Task1C OpenSet Scenes"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/dcase2019_task1c_openset"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "DCASE 2019 Task1C OpenSet 环境声"
+
+  - id: dns5_noise
+    name: "DNS5 Fullband Noise"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/dns5_noise"
+    input_pattern: "**/*.flac"
+    label_source: filename
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "Microsoft Research License"
+    notes: "DNS5 全频带噪声，子目录按来源分组"
+
+  - id: esc50
+    name: "ESC-50"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/esc50"
+    input_pattern: "**/*.flac"
+    label_source: mapping
+    label_mapping: "esc50_to_audioset.yaml"
+    splits: [train]
+    split_strategy: none
+    license: "CC BY-NC 3.0"
+    notes: "50 类环境声，通过映射文件转换为 AudioSet 标签"
+
+  - id: fma_medium
+    name: "FMA Medium"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/fma_medium"
+    input_pattern: "**/*.flac"
+    label_source: directory
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "CC BY-NC-SA 4.0"
+    notes: "Free Music Archive，按数字子目录组织"
+
+  - id: fsd50k
+    name: "FSD50K"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/fsd50k"
+    input_pattern: "**/*.flac"
+    label_source: filename
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "Creative Commons"
+    notes: "FSD50K 开发集音频；标签文件位于 FSD50K.ground_truth/dev.csv"
+
+  - id: mka
+    name: "MKA Keyboard Audio"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/mka"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "Unknown"
+    notes: "键盘敲击音频数据集，包含多设备原始录音与按键分段"
+
+  - id: musan
+    name: "MUSAN"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/musan"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "MUSAN 本机只有 music + noise 两个子集（无 speech），1590 个 flac"
+
+  - id: musdb18
+    name: "MUSDB18"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/musdb18"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "MUSDB18 整曲 stems 750 个；vocals 会被 C1/C3 自动拒绝，留伴奏作为音乐噪声"
+
+  - id: selfrecord_keyboard
+    name: "Self-Recorded Keyboard"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/selfrecord_keyboard"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "自录键盘敲击 1755 段，平铺无标签"
+
+  - id: wavcaps_audioset_sl
+    name: "WavCaps AudioSet SL"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/wavcaps_audioset_sl"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "CC BY"
+    notes: "WavCaps 子集：AudioSet 强标签音频"
+
+  - id: wavcaps_bbc_sound_effects
+    name: "WavCaps BBC Sound Effects"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/wavcaps_bbc_sound_effects"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "Remix License"
+    notes: "WavCaps 子集：BBC 音效库"
+
+  - id: wavcaps_freesound
+    name: "WavCaps FreeSound"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/wavcaps_freesound"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "CC0/BY/BY-NC"
+    notes: "WavCaps 子集：FreeSound 音频"
+
+  - id: wavcaps_soundbible
+    name: "WavCaps SoundBible"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/wavcaps_soundbible"
+    input_pattern: "**/*.flac"
+    label_source: none
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "CC BY 4.0"
+    notes: "WavCaps 子集：SoundBible 音效"
+
+  - id: wham_noise
+    name: "WHAM! Noise 48k"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/wham_noise"
+    input_pattern: "**/*.flac"
+    label_source: filename
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    license: "CC BY 4.0"
+    notes: "WHAM! 48kHz 高分辨率噪声"
+
+  - id: youtube_keyboard_mouse
+    name: "YouTube Keyboard/Mouse/Typing"
+    enabled: true
+    type: directory
+    path: "/data_nvme2n1/noise_v1/youtube_keyboard_mouse"
+    input_pattern: "**/*.flac"
+    label_source: directory
+    label_mapping: null
+    splits: [train]
+    split_strategy: none
+    notes: "YouTube 采集，keyboard/mouse/typing 子目录即类别"

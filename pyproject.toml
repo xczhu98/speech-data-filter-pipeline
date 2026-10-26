@@ -1,0 +1,20 @@
+[project]
+name = "speech-data-filter-pipeline"
+version = "0.1.0"
+description = "Speech and noise data filtering pipelines"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+addopts = '-m "unit"'
+strict_markers = true
+markers = [
+    "unit: default unit/contract suite",
+    "contract: public API, configuration, CLI, or compatibility contract tests",
+    "integration: cross-module, filesystem, daemon, or end-to-end tests",
+    "subprocess: tests that launch a real child process",
+    "ddp: tests that initialize distributed workers or invoke torchrun",
+    "ort: tests that require or execute ONNX Runtime",
+    "gpu: tests requiring CUDA, GPU, torchrun, or GPU-specific extensions",
+    "external: tests requiring external models, checkpoints, network, or dedicated environments",
+    "pipeline: noise_filter_pipeline tests",
+]
